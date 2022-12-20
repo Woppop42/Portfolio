@@ -23,7 +23,7 @@ header("Location: ./index.php");
             <h3>Bienvenue <?=$_SESSION["prenom"] ?></h3>
             <form action="../core/userController.php" method="post">
                 <input type="hidden" name="execute" value="log-out">
-            <button class="btn btn-warning"  type="submit">Se déconnecter </button>
+            <button class="btn btn-warning"  type="submit">Se déconnecter</button>
 </form>
     </div>
 </div>

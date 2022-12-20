@@ -9,6 +9,13 @@ include("headerFront.php");
 <body>
 
 <div class="container">
+    <div class="text-center">
+        <h3>Bienvenue sur mon site camarade !</h3>
+            <p>Ici tu trouveras uniquement un simple portfolio pas bien rempli...<br>
+               Mais patience, il s'etoffe de jour en jour !<br>
+            En attendant de vous présenter un portfolio décent<br>
+            Laissez-moi vous présenter celui de la brillante Nikita.</p>
+    </div> 
     <div class="row mt-5">
         <?php if(isset($_SESSION["message"])){
             echo '<div class="alert alert-succes" role="alert">' . $_SESSION["message"] . '</div>';

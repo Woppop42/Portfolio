@@ -14,8 +14,11 @@ include("../inc/headerFront.php");
                 <input type="text" name="nom" id="nom" placeholder="Votre nom">
                 <input type="text" name="prenom" id="prenom" placeholder="Votre prénom">
                 <input type="text" name="mail" id="mail" placeholder="Votre mail">
-                <input type="password" name="password" id="password" placeholder="Votre mot de passe">   
+                <input type="password" name="password" id="password" placeholder="Votre mot de passe"> 
+                <input type="checkbox" name="role_admin" id="role_admin">
+                <label for="role_admin">Je suis un administrateur</label> <br>
                 <button type="submit" name="soumettre" class="btn btn-warning fw-bold">LOG IN</button>
+                
             </form>
         </div>
     </div>
@@ -31,7 +34,12 @@ if(isset($_POST["soumettre"])){
     // Gestion du mdp avec son encodage
     $options = ['cost' => 12];
     $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT, $options);
-    $role = 1;
+    if($_POST["role_admin"]=== true){
+        $role = 1;
+    }
+    else{
+        $role = 2;
+    }
     // 2- préparation de l'écriture SQL.
     $sql = 'INSERT INTO table_user(nom, prenom, mail, password, role)
             VALUE("'. $nom .'", "' . $prenom .'", "' . $mail .'", "' . $password .'", "' . $role . '")';
@@ -41,9 +49,13 @@ if(isset($_POST["soumettre"])){
 
  // 3- Éxécution de la requête avec les paramètres de connexion.
  mysqli_query($connexion, $sql) or die(mysqli_error($connexion));
- // 4- Message de confirmation.
+ // 4- Message de confirmation en fonction du rôle (administrateur ou utilisateur).
+ if(isset($_POST["role_admin"])){
  $_SESSION["message"] = "Administrateur $nom $prenom est correctement ajouté à la BDD.";
- echo $_SESSION["message"];
+ echo $_SESSION["message"];}else{
+    $_SESSION["message"] = "Utilisateur $nom $prenom est correctement ajouté à la BDD.";
+    echo $_SESSION["message"];
+ }
  // 5- Redirection vers notre page d'accueil (index.php).
  header("Location: ../inc/index.php");
  exit;
