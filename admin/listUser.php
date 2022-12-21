@@ -43,7 +43,9 @@ foreach($users as $user){
     //echo '</pre>';
     ?>
     <tr>
-        <td><?php echo $user["id_user"]; ?></td>
+        <td><?php echo '<form method="get">
+                <input type="hidden" name="execute">'. 
+            '<a class="btn btn-warning"  type="submit" href="updateUser.php">'. $user["id_user"] .'</a></form>'; ?></td>
         <td><?php echo $user["nom"]; ?></td>
         <td><?= $user["prenom"]; ?></td>
         <td><?= $user["mail"]; ?></td>

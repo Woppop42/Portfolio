@@ -15,7 +15,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Accueil Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled">Gestion des utilisateurs</a>
+                            <a class="nav-link" href="../admin/listUser.php">Gestion des utilisateurs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled">Gestion des compétences</a>
