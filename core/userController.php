@@ -134,4 +134,8 @@
         header("Location: ../admin/updateUser.php?id_user=" . $_POST["id_user"]);
         exit;
     }
+    function deleteUser(){
+        require("connexion.php");
+        
+    }
 ?>
