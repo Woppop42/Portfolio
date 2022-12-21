@@ -43,9 +43,7 @@ foreach($users as $user){
     //echo '</pre>';
     ?>
     <tr>
-        <td><?php echo '<form method="get">
-                <input type="hidden" name="execute">'. 
-            '<a class="btn btn-warning"  type="submit" href="updateUser.php">'. $user["id_user"] .'</a></form>'; ?></td>
+        <td><a href="./updateUser.php?id_user= <?= $user["id_user"];?>"> <?= $user["id_user"]?> </a></td>
         <td><?php echo $user["nom"]; ?></td>
         <td><?= $user["prenom"]; ?></td>
         <td><?= $user["mail"]; ?></td>
@@ -55,7 +53,10 @@ foreach($users as $user){
             echo "Utilisateur";
         }
         ; ?></td>
-        <td></td>
+        <td>
+            <a class="btn btn-danger" href="deleteUser.php?id_user= <?= $user["id_user"];?>">Supprimer</a>
+            <a class="btn btn-success" href="updateUser.php?id_user= <?= $user["id_user"];?>">Modifier</a>
+        </td>
 </tr>
     <?php
 }

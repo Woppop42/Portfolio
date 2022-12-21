@@ -41,7 +41,7 @@ if(isset($_POST["soumettre"])){
         $role = 2;
     }
     // 2- préparation de l'écriture SQL.
-    $sql = 'INSERT INTO table_user(nom, prenom, mail, password, role)
+    $sql = 'INSERT INTO table_user(nom, prenom, mail, `password`, `role`)
             VALUE("'. $nom .'", "' . $prenom .'", "' . $mail .'", "' . $password .'", "' . $role . '")';
  // OU  sans concaténation : 
  // $sql = "INSERT INTO user (first_name,last_name,email,password,role)
