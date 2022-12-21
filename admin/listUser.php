@@ -56,6 +56,7 @@ foreach($users as $user){
         <td>
             <a class="btn btn-danger" href="deleteUser.php?id_user= <?= $user["id_user"];?>">Supprimer</a>
             <a class="btn btn-success" href="updateUser.php?id_user= <?= $user["id_user"];?>">Modifier</a>
+            <a class="btn btn-warning" href="readUser.php?id_user= <?= $user["id_user"];?>">Détails</a>
         </td>
 </tr>
     <?php
